@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model d_case {
+  problem        String   @db.VarChar(255)
+  origin_trigram String   @db.VarChar(255)
+  mid_trigram    String?  @db.VarChar(255)
+  final_trigram  String?  @db.VarChar(255)
+  shift_yao      Int
+  d_time         String   @db.VarChar(255)
+  gender         Int?
+  gz_time        String?  @db.VarChar(255)
+  prediction     String?  @db.VarChar(255)
+  result         String?  @db.VarChar(255)
+  hint           String?  @db.VarChar(255)
+  pre_desc       String?  @db.VarChar(255)
+  correct        Int?
+  rethink        String?  @db.VarChar(255)
+  outside_react  String?  @db.VarChar(255)
+  category       Int?
+  id             Int      @id @default(autoincrement())
+  createdAt      DateTime @db.DateTime(0)
+  updatedAt      DateTime @db.DateTime(0)
+  solarTerm      String?  @db.VarChar(255)
+  missing        String?  @db.VarChar(255)
+  c_time         String?  @db.VarChar(255)
+  user_id        Int      @default(1)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model eight_trigram {
+  trigram_name String  @db.VarChar(255)
+  pre_num      Int     @id
+  thing        String? @db.VarChar(255)
+  zh_name      String? @db.VarChar(255)
+  wuxing       String? @db.VarChar(255)
+  gan          String? @db.VarChar(255)
+  zhi          String? @db.VarChar(255)
+  yy           Int?
+  after_num    Int
+  yao_yy       String? @db.VarChar(255)
+  inner_nj     String? @db.VarChar(255)
+  outer_nj     String? @db.VarChar(255)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model t {
+  trigram         String? @db.VarChar(255)
+  trigram_num     Int     @id
+  mid_trigram     String? @db.VarChar(255)
+  final_trigram_1 String? @db.VarChar(255)
+  final_trigram_2 String? @db.VarChar(255)
+  final_trigram_3 String? @db.VarChar(255)
+  final_trigram_4 String? @db.VarChar(255)
+  final_trigram_5 String? @db.VarChar(255)
+  final_trigram_6 String? @db.VarChar(255)
+  reverse_trigram String? @db.VarChar(255)
+  rotate_trigram  String? @db.VarChar(255)
+  trigram_content String? @db.VarChar(255)
+  yao_content_1   String? @db.VarChar(255)
+  yao_content_2   String? @db.VarChar(255)
+  yao_content_3   String? @db.VarChar(255)
+  yao_content_4   String? @db.VarChar(255)
+  yao_content_5   String? @db.VarChar(255)
+  yao_content_6   String? @db.VarChar(255)
+  yao_content_e   String? @db.VarChar(255)
+
+  @@ignore
+}
+
+model trigram {
+  trigram              String  @db.VarChar(255)
+  trigram_num          Int     @id
+  mid_trigram          String  @db.VarChar(255)
+  final_trigram_1      String? @db.VarChar(255)
+  final_trigram_2      String? @db.VarChar(255)
+  final_trigram_3      String? @db.VarChar(255)
+  final_trigram_4      String? @db.VarChar(255)
+  final_trigram_5      String? @db.VarChar(255)
+  final_trigram_6      String? @db.VarChar(255)
+  reverse_trigram      String? @db.VarChar(255)
+  rotate_trigram       String? @db.VarChar(255)
+  trigram_content      String? @db.VarChar(255)
+  yao_content_1        String? @db.VarChar(255)
+  yao_content_2        String? @db.VarChar(255)
+  yao_content_3        String? @db.VarChar(255)
+  yao_content_4        String? @db.VarChar(255)
+  yao_content_5        String? @db.VarChar(255)
+  yao_content_e        String? @db.VarChar(255)
+  final_trigram_e      String? @db.VarChar(255)
+  yao_content_6        String? @db.VarChar(255)
+  trigram_home         String? @db.VarChar(255)
+  yao_content_baihua_1 String? @db.VarChar(255)
+  yao_content_baihua_2 String? @db.VarChar(255)
+  yao_content_baihua_3 String? @db.VarChar(255)
+  yao_content_baihua_4 String? @db.VarChar(255)
+  yao_content_baihua_5 String? @db.VarChar(255)
+  yao_content_baihua_6 String? @db.VarChar(255)
+  yao_shi              Int?
+  yao_ying             Int?
+  yao_yy               String? @db.VarChar(255)
+  position_square      Int?
+}
+
+model user {
+  user_id   Int    @id @default(autoincrement())
+  user_name String @unique(map: "user_name") @db.VarChar(255)
+  pazz_word String @db.VarChar(255)
+}
