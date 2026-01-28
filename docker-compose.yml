@@ -5,5 +5,5 @@ services:
     ports:
       - "8088:3000"           # 映射端口
     env_file:
-      - .env.development       # 自动加载你的生产环境配置
+      - .env.production       # 自动加载你的生产环境配置
     restart: always           # 即使服务器重启，它也会自动拉起
