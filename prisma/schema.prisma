@@ -1,6 +1,6 @@
+// 不写output使用默认路径
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
